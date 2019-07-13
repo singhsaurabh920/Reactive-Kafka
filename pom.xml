@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.worldbuild.reactor</groupId>
-	<artifactId>world-build-starter-kafka</artifactId>
+	<artifactId>wb-reactor-kafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>wb-kafka</name>
 	<description>kafka project</description>
