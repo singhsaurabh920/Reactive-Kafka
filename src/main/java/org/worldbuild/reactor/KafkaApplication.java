@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 @SpringBootApplication
-@EnableReactiveMongoRepositories(basePackages = "com.starter.kafka.domain.repository")
+@EnableReactiveMongoRepositories(basePackages = "org.worldbuild.reactor.domain.repository")
 public class KafkaApplication {
 
 	public static void main(String[] args) {
