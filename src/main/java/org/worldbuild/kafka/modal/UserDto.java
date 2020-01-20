@@ -1,4 +1,4 @@
-package org.worldbuild.reactor.modal;
+package org.worldbuild.kafka.modal;
 
 public class UserDto {
 

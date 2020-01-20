@@ -1,8 +1,8 @@
-package org.worldbuild.reactor.controller;
+package org.worldbuild.kafka.controller;
 
-import org.worldbuild.reactor.modal.Response;
-import org.worldbuild.reactor.modal.UserDto;
-import org.worldbuild.reactor.service.KafkaProducerService;
+import org.worldbuild.kafka.service.KafkaProducerService;
+import org.worldbuild.kafka.modal.Response;
+import org.worldbuild.kafka.modal.UserDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

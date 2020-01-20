@@ -1,6 +1,6 @@
-package org.worldbuild.reactor.domain.repository;
+package org.worldbuild.kafka.domain.repository;
 
-import org.worldbuild.reactor.domain.entity.User;
+import org.worldbuild.kafka.domain.entity.User;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 

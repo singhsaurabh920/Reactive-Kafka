@@ -1,4 +1,4 @@
-package org.worldbuild.reactor.modal;
+package org.worldbuild.kafka.modal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package org.worldbuild.reactor.domain.entity;
+package org.worldbuild.kafka.domain.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;

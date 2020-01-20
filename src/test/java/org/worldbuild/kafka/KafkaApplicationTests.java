@@ -1,4 +1,4 @@
-package org.worldbuild.reactor;
+package org.worldbuild.kafka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
