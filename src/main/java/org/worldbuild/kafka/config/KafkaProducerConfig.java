@@ -1,7 +1,5 @@
-/*
-package com.starter.kafka.config;
+package org.worldbuild.kafka.config;
 
-import UserDto;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +9,8 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
+import org.worldbuild.kafka.modal.UserDto;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,4 +39,3 @@ public class KafkaProducerConfig {
         return new KafkaTemplate<>(producerFactory());
     }
 }
-*/

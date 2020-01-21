@@ -1,5 +1,6 @@
 package org.worldbuild.kafka.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.worldbuild.kafka.domain.entity.User;
 import org.worldbuild.kafka.domain.repository.UserRepository;
 import org.apache.logging.log4j.LogManager;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Log4j2
 @RestController
 @RequestMapping("/user")
 public class UserController {

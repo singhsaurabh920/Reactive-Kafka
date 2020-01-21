@@ -1,5 +1,6 @@
 package org.worldbuild.kafka.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.worldbuild.kafka.modal.UserDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+@Log4j2
 @RestController
 @RequestMapping("/kafka/suscribe")
 public class KafkaSubscriberController {
-    private static final Logger logger = LogManager.getLogger(KafkaSubscriberController.class);
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
 

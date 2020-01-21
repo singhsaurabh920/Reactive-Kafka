@@ -1,24 +1,23 @@
-/*
-package com.starter.kafka.service;
+package org.worldbuild.kafka.service;
 
-import UserDto;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
+import org.worldbuild.kafka.constnat.KafkaConstant;
+import org.worldbuild.kafka.modal.UserDto;
+@Log4j2
 @Service
 public class KafkaConsumerService {
-    private static final Logger logger = LogManager.getLogger(KafkaProducerService.class);
 
-    @KafkaListener(topics ="TEXTTOPIC" , containerFactory="kafkaListenerContainerFactory", groupId = "group-id1")
+    @KafkaListener(topics = KafkaConstant.Text.TOPIC, containerFactory="kafkaListenerContainerFactory", groupId = KafkaConstant.Text.CG)
     public void consumeString(String msg){
-        logger.info("RECEVIED GROUP_ID1 - " + msg );
+        log.info("RECEVIED "+ KafkaConstant.User.CG+" ----: "  + msg );
     }
 
-    @KafkaListener(topics ="USERTOPIC" , containerFactory="userKafkaListenerContainerFactory", groupId = "group-id2")
+    @KafkaListener(topics =KafkaConstant.User.TOPIC , containerFactory="userKafkaListenerContainerFactory", groupId = KafkaConstant.User.CG)
     public void consumeUser(UserDto user){
-        logger.info("RECEVIED GROUP-ID2- " + user );
+        log.info("RECEVIED "+ KafkaConstant.User.CG+" ----: " + user );
     }
 }
-*/

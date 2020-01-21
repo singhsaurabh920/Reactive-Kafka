@@ -1,6 +1,7 @@
-/*
-package com.starter.kafka.config;
+package org.worldbuild.kafka.config;
 
+/*
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +12,8 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 
+@Log4j2
 @Configuration
-@EnableReactiveMongoRepositories(basePackages = "com.starter.kafka.domain.repository")
 public class MongoConfig extends AbstractReactiveMongoConfiguration {
 
     @Override
@@ -22,7 +23,7 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "kafka";
+        return "";
     }
 
     @Bean
@@ -30,4 +31,5 @@ public class MongoConfig extends AbstractReactiveMongoConfiguration {
         return new ReactiveMongoTemplate(reactiveMongoClient(), getDatabaseName());
     }
 }
+
 */
