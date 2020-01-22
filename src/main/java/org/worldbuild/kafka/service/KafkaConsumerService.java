@@ -11,13 +11,4 @@ import org.worldbuild.kafka.modal.UserDto;
 @Service
 public class KafkaConsumerService {
 
-    @KafkaListener(topics = KafkaConstant.Text.TOPIC, containerFactory="kafkaListenerContainerFactory", groupId = KafkaConstant.Text.CG)
-    public void consumeString(String msg){
-        log.info("RECEVIED "+ KafkaConstant.User.CG+" ----: "  + msg );
-    }
-
-    @KafkaListener(topics =KafkaConstant.User.TOPIC , containerFactory="userKafkaListenerContainerFactory", groupId = KafkaConstant.User.CG)
-    public void consumeUser(UserDto user){
-        log.info("RECEVIED "+ KafkaConstant.User.CG+" ----: " + user );
-    }
 }

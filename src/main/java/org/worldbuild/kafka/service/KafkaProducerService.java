@@ -1,34 +1,39 @@
 package org.worldbuild.kafka.service;
 
 import lombok.extern.log4j.Log4j2;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.worldbuild.kafka.constnat.KafkaConstant;
 import org.worldbuild.kafka.modal.UserDto;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.kafka.sender.KafkaSender;
+import reactor.kafka.sender.SenderRecord;
+import reactor.kafka.sender.SenderResult;
+
+import java.time.Instant;
+import java.util.Date;
+
 @Log4j2
 @Service
 public class KafkaProducerService {
-   @Autowired
-   private KafkaTemplate kafkaTemplate;
+
+    @Autowired
+    @Qualifier("userKafkaSender")
+    private KafkaSender kafkaSender;
 
     public void produceUser(UserDto userDto) {
-            ListenableFuture<SendResult<String, UserDto>> future = kafkaTemplate.send(KafkaConstant.User.TOPIC, userDto);
-            future.addCallback( new ListenableFutureCallback<SendResult<String, UserDto>>() {
-                @Override
-                public void onSuccess(SendResult<String, UserDto> userSendResult) {
-                    log.info("SENT - " + userDto);
-                }
-                @Override
-                public void onFailure(Throwable throwable) {
-                    log.info("SENT " + userDto + " FAILED DUE TO : " + throwable.getMessage());
-                }
-            });
+        Flux<SenderResult<?>> flux = kafkaSender.send(Mono.just(SenderRecord.create(KafkaConstant.User.TOPIC, 0, Date.from(Instant.EPOCH).getTime(), null, userDto, null)));
+        flux.doOnNext((sr) -> {
+            RecordMetadata meta = sr.recordMetadata();
+            log.info("SENT SUCCESSFULL : ####### " + meta.offset() + " ######");
+        }).doOnError((e) -> {
+            log.error("SENT FAILED : ", e);
+        }).subscribe();
     }
+
 
 }
