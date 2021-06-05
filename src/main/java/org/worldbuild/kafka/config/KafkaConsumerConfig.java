@@ -1,5 +1,7 @@
 package org.worldbuild.kafka.config;
 
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -21,6 +23,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
@@ -53,7 +56,9 @@ public class KafkaConsumerConfig {
     public Flux<ReceiverRecord<String, UserDto>> userKafkaReciver() {
         KafkaReceiver<String, UserDto> kafkaReceiver = KafkaReceiver.create(userReceiverOptions());
         Flux<ReceiverRecord<String, UserDto>> kafkaFlux = kafkaReceiver.receive()
-                .subscribeWith(EmitterProcessor.create(false));
+                .subscribeWith(EmitterProcessor.create(false)).doOnSubscribe(ss->{
+                    log.info("Subscribe ==> "+ss.toString());
+                });
         return kafkaFlux;
     }
 

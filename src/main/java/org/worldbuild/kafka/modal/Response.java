@@ -1,7 +1,11 @@
 package org.worldbuild.kafka.modal;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.http.HttpStatus;
+@Getter
+@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Response<T> {
 
@@ -9,9 +13,6 @@ public class Response<T> {
     private int code=HttpStatus.OK.value();
     private String msg;
     private T data;
-
-    public Response() {
-    }
 
     public Response(T data) {
         this.data = data;
@@ -21,37 +22,5 @@ public class Response<T> {
         this.status = status;
         this.code=status.value();
         this.msg=msg;
-    }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(HttpStatus status) {
-        this.status = status;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 }
