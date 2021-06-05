@@ -11,7 +11,7 @@
 	<groupId>org.worldbuild.reactor</groupId>
 	<artifactId>wb-reactor-kafka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>wb-reactor-kafka</name>
+	<name>Reactive-Kafka</name>
 	<description>kafka project</description>
 
 	<properties>
