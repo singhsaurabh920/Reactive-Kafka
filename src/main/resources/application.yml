@@ -3,4 +3,4 @@ server:
 spring:
   profiles:
     active: dev
-user-no: 1
+user.no: 2

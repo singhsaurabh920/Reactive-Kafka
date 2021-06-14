@@ -13,10 +13,10 @@ import javax.annotation.PostConstruct;
 @Slf4j
 @Configuration
 @ConfigurationProperties(prefix = "spring.user")
-@PropertySource(value = {"classpath:user-${user-no}.yml"},factory = YamlPropertySourceFactory.class)
+@PropertySource(value = {"classpath:user-${user.no}.yml"},factory = YamlPropertySourceFactory.class)
 public class UserConfig {
 
-    @Value("${user-no}")
+    @Value("${user.no}")
     private String userNo;
 
     private String name;
