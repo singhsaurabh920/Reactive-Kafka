@@ -7,6 +7,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.worldbuild.kafka.modal.UserDto;
 import reactor.kafka.sender.KafkaSender;
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Log4j2
+@Profile("ck")
 @Configuration
 public class KafkaProducerConfig {
 

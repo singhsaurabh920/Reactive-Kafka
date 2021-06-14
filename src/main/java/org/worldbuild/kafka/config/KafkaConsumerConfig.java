@@ -8,6 +8,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.worldbuild.kafka.constnat.KafkaConstant;
@@ -24,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
+@Profile("ck")
 @EnableKafka
 @Configuration
 public class KafkaConsumerConfig {
@@ -52,13 +54,11 @@ public class KafkaConsumerConfig {
         return receiverOptions;
     }
 
-    @Bean("userKafkaReciver")
-    public Flux<ReceiverRecord<String, UserDto>> userKafkaReciver() {
+    @Bean("userKafkaReceiver")
+    public Flux<ReceiverRecord<String, UserDto>> userKafkaReceiver() {
         KafkaReceiver<String, UserDto> kafkaReceiver = KafkaReceiver.create(userReceiverOptions());
         Flux<ReceiverRecord<String, UserDto>> kafkaFlux = kafkaReceiver.receive()
-                .subscribeWith(EmitterProcessor.create(false)).doOnSubscribe(ss->{
-                    log.info("Subscribe ==> "+ss.toString());
-                });
+                .subscribeWith(EmitterProcessor.create(false)).doOnSubscribe(ss-> log.info("Subscribe ==> "+ss.toString()));
         return kafkaFlux;
     }
 

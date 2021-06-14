@@ -1,0 +1,4 @@
+spring:
+  user:
+    name: Maya
+    age: 18

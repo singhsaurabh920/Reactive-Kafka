@@ -3,6 +3,7 @@ package org.worldbuild.kafka.controller;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.worldbuild.kafka.modal.UserDto;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
 import reactor.kafka.receiver.ReceiverRecord;
 
 @Log4j2
+@Profile("ck")
 @RestController
 @RequestMapping("/kafka/suscribe")
 public class KafkaSubscriberController {

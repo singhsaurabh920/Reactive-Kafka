@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      host: 13.232.42.110
+      port: 27017
+      database: wb24
+      username: wb24-admin
+      password: wb24-admin
+      authentication-database: wb24
+      uri: mongodb://wb24-admin:wb24-admin@13.232.42.110:27017/?authSource=wb24
+kafka:
+  bootstrap:
+    address: 13.232.42.110:9092

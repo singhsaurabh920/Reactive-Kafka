@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -15,15 +16,16 @@ import reactor.core.publisher.Flux;
 import reactor.kafka.receiver.ReceiverRecord;
 
 @Log4j2
+@Profile("ck")
 @Component
 public class KafkaConsumerService {
 
     @Autowired
-    @Qualifier("userKafkaReciver")
-    public Flux<ReceiverRecord<String, UserDto>> userKafkaReciver;
+    @Qualifier("userKafkaReceiver")
+    public Flux<ReceiverRecord<String, UserDto>> userKafkaReceiver;
 
     public Flux<UserDto> consumeUser() {
-        return userKafkaReciver.map(receiverRecord -> {
+        return userKafkaReceiver.map(receiverRecord -> {
             log.info(receiverRecord);
             return receiverRecord.value();
         });

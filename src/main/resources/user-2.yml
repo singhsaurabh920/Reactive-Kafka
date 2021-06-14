@@ -1,0 +1,4 @@
+spring:
+  user:
+    name: Saurabh
+    age: 19

@@ -2,6 +2,7 @@ package org.worldbuild.kafka.controller;
 
 import lombok.extern.log4j.Log4j2;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.springframework.context.annotation.Profile;
 import org.worldbuild.kafka.modal.Response;
 import org.worldbuild.kafka.service.KafkaProducerService;
 import org.worldbuild.kafka.modal.UserDto;
@@ -12,6 +13,7 @@ import reactor.kafka.sender.SenderResult;
 
 
 @Log4j2
+@Profile("ck")
 @RestController
 @RequestMapping("/kafka/publish")
 public class KafkaPublisherController {
