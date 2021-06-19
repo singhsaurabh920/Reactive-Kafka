@@ -1,0 +1,8 @@
+tcp:
+  protocols:
+    Concox:
+      active: true
+      timeout: 8
+    Teltonika:
+      active: false
+      timeout: 7

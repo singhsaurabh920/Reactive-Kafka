@@ -12,21 +12,21 @@ import javax.annotation.PostConstruct;
 @Data
 @Slf4j
 @Configuration
-@ConfigurationProperties(prefix = "spring.user")
-@PropertySource(value = {"classpath:user-${user.no}.yml"},factory = YamlPropertySourceFactory.class)
-public class UserConfig {
+@ConfigurationProperties(prefix = "server.protocol")
+@PropertySource(value = {"classpath:server-${server.config}-config.yml"},factory = YamlPropertySourceFactory.class)
+public class ServerConfig {
 
-    @Value("${user.no}")
-    private String userNo;
+    @Value("${server.config}")
+    private String serverConfig;
 
     private String name;
-    private int age;
+    private int port;
 
 
     @PostConstruct
     private void init(){
         log.info("---------------------------------------");
-        log.info(userNo+" ==> Name {} Age {}",this.name,this.age);
+        log.info(serverConfig+" ==> Name {} Age {}",this.name,this.port);
         log.info("---------------------------------------");
     }
 }

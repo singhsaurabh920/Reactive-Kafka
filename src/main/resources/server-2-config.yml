@@ -1,0 +1,4 @@
+server:
+  protocol:
+    name: Coban
+    port: 8072

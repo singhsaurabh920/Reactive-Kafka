@@ -1,0 +1,4 @@
+server:
+  protocol:
+    name: Concox
+    port: 8071

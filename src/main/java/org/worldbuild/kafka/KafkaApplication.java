@@ -33,12 +33,12 @@ public class KafkaApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		log.info("------------- SystemEnvironment -----------------");
 		env.getSystemEnvironment().forEach((k,v)->{
-			log.info(k +" --> "+v);
+			//log.info(k +" --> "+v);
 		});
 		log.info("-------------------------------------------------");
 		log.info("-------------- SystemProperties -----------------");
 		env.getSystemProperties().forEach((k,v)->{
-			log.info(k +" --> "+v);
+			//log.info(k +" --> "+v);
 		});
 		log.info("-------------------------------------------------");
 	}
